@@ -1,4 +1,4 @@
-console.log("Hello, World!");
+console.log("Welcome to Rock, Paper, Scissors!");
 
 const choices = ["rock","paper","scissors"];
 let gameCount = 1;
@@ -24,7 +24,7 @@ function getComputerChoice() {
 
 function getUserChoice(gameCount, userScore, computerScore) {
     let rawChoice = prompt(`
-        Round: ${gameCount}
+        Round: ${gameCount} / 5
         Score: 
             You: ${userScore} 
             Computer: ${computerScore}
