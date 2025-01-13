@@ -1,6 +1,9 @@
-console.log("Hello, World!")
+console.log("Hello, World!");
 
-choices = ["rock","paper","scissors"]
+const choices = ["rock","paper","scissors"];
+let gameCount = 1;
+let userScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     choiceInt = Math.floor(Math.random() * 3);
