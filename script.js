@@ -42,11 +42,46 @@ function getUserChoice(gameCount, userScore, computerScore) {
 }
 
 function scoreLogic(state) {
-    if (state) {
-        userScore += 1
+    if (state === "DRAW") {
+        return;
+    }
+    else if (state) {
+        userScore += 1;
     }
     else {
-        computerScore += 1
+        computerScore += 1;
     }
     return;
+}
+
+function gameLogic(userChoice,computerChoice) {
+    // If the computer and user choose the same item, the game is a draw
+    if (userChoice === computerChoice) {
+        return "DRAW";
+    }
+    else if (userChoice === "rock") {
+        if (computerChoice === "paper") {
+            return 0;
+        }
+        else if (computerChoice === "scissors") {
+            return 1
+        }
+    }
+    else if (userChoice === "paper") {
+        if (computerChoice === "rock"){
+            return 1;
+        }
+        else if (computerChoice === "scissors") {
+            return 0;
+        }
+    }
+    else if (userChoice === "scissors") {
+        if (computerChoice === "rock") {
+            return 0;
+        }
+        else if (computerChoice === "paper") {
+            return 1;
+        }
+    }
+
 }
