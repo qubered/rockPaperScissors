@@ -7,7 +7,7 @@ let computerScore = 0;
 let state = 0;
 
 function getComputerChoice() {
-    choiceInt = Math.floor(Math.random() * 3);
+    let choiceInt = Math.floor(Math.random() * 3);
     switch (choiceInt) {
         case 0: 
             choice = "rock";
@@ -23,7 +23,7 @@ function getComputerChoice() {
 }
 
 function getUserChoice(gameCount, userScore, computerScore) {
-    rawChoice = prompt(`
+    let rawChoice = prompt(`
         Game: ${gameCount}
         Score: 
             You: ${userScore} 
@@ -31,7 +31,7 @@ function getUserChoice(gameCount, userScore, computerScore) {
 
         Rock, Paper or Scissors?
         `);
-    cleanChoice = rawChoice.toLowerCase()
+    let cleanChoice = rawChoice.toLowerCase()
     if (choices.indexOf(cleanChoice) > -1) {
         return cleanChoice;
     }
@@ -43,12 +43,15 @@ function getUserChoice(gameCount, userScore, computerScore) {
 
 function scoreLogic(state) {
     if (state === "DRAW") {
+        alert("It was a draw!")
         return;
     }
     else if (state) {
+        alert("Good Job! You win!")
         userScore += 1;
     }
     else {
+        alert("Better Luck next time!")
         computerScore += 1;
     }
     return;
@@ -84,4 +87,12 @@ function gameLogic(userChoice,computerChoice) {
         }
     }
 
+}
+
+function roundLogic() {
+    let computerChoice = getComputerChoice();
+    let userChoice = getUserChoice(gameCount,userScore,computerScore);
+    let gameResult = gameLogic(userChoice,computerChoice);
+    scoreLogic(gameResult);
+    gameCount += 1;
 }
