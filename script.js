@@ -107,7 +107,7 @@ function roundLogic() {
 }
 
 //Runs on site launch, runs the 5 rounds
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
     roundLogic()
 }
 
