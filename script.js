@@ -96,3 +96,7 @@ function roundLogic() {
     scoreLogic(gameResult);
     gameCount += 1;
 }
+
+for (let i = 0; i < 4; i++) {
+    roundLogic()
+}
