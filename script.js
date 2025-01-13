@@ -24,7 +24,7 @@ function getComputerChoice() {
 
 function getUserChoice(gameCount, userScore, computerScore) {
     let rawChoice = prompt(`
-        Game: ${gameCount}
+        Round: ${gameCount}
         Score: 
             You: ${userScore} 
             Computer: ${computerScore}
@@ -96,7 +96,16 @@ function roundLogic() {
     scoreLogic(gameResult);
     gameCount += 1;
 }
-
 for (let i = 0; i < 4; i++) {
     roundLogic()
 }
+
+let winner = userScore > computerScore
+    ? "you won the game!"
+    : "you lost the game, try again next time!";
+
+alert(`
+After 5 rounds, ${winner}
+The Score was:
+    You: ${userScore}
+    Computer: ${computerScore}`)
