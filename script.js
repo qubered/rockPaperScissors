@@ -31,13 +31,17 @@ function getUserChoice(gameCount, userScore, computerScore) {
 
         Rock, Paper or Scissors?
         `);
+    if (!rawChoice) {
+        console.log("USER DID NOT CHOOSE")
+        return getComputerChoice();
+    }
     let cleanChoice = rawChoice.toLowerCase()
     if (choices.indexOf(cleanChoice) > -1) {
         return cleanChoice;
     }
     else {
         console.log("BAD USER INPUT") ;
-        return;
+        return getComputerChoice();
     } 
 }
 
