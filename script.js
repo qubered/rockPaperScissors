@@ -4,6 +4,7 @@ const choices = ["rock","paper","scissors"];
 let gameCount = 1;
 let userScore = 0;
 let computerScore = 0;
+let state = 0;
 
 function getComputerChoice() {
     choiceInt = Math.floor(Math.random() * 3);
@@ -38,4 +39,14 @@ function getUserChoice(gameCount, userScore, computerScore) {
         console.log("BAD USER INPUT") ;
         return;
     } 
+}
+
+function scoreLogic(state) {
+    if (state) {
+        userScore += 1
+    }
+    else {
+        computerScore += 1
+    }
+    return;
 }
