@@ -1,12 +1,14 @@
-console.log("Welcome to Rock, Paper, Scissors!");
-
 
 // Variable Declarations 
 const choices = ["rock","paper","scissors"];
-let gameCount = 1;
+
 let userScore = 0;
 let computerScore = 0;
 let state = 0;
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorButton = document.querySelector("#scissors")
 
 // Generates a random number between 0 and 2, then maps it to the choice and returns that.
 function getComputerChoice() {
@@ -51,15 +53,12 @@ function getUserChoice(gameCount, userScore, computerScore) {
 // Creates Alerts to the user to tell them the state of the game and assign points.
 function scoreLogic(state) {
     if (state === "DRAW") {
-        alert("It was a draw!")
         return;
     }
     else if (state) {
-        alert("Good Job! You win!")
         userScore += 1;
     }
     else {
-        alert("Better Luck next time!")
         computerScore += 1;
     }
     return;
@@ -98,27 +97,21 @@ function gameLogic(userChoice,computerChoice) {
 
 }
 // Controls the overall game, gets the computer and user inputs and gets the results and assigns them
-function roundLogic() {
+function roundLogic(userChoice) {
     let computerChoice = getComputerChoice();
-    let userChoice = getUserChoice(gameCount,userScore,computerScore);
     let gameResult = gameLogic(userChoice,computerChoice);
     scoreLogic(gameResult);
-    gameCount += 1;
+    return gameResult
 }
 
-//Runs on site launch, runs the 5 rounds
-for (let i = 0; i < 5; i++) {
-    roundLogic()
-}
 
-// Checks if the user won the game or not based on score.
-let winner = userScore > computerScore
-    ? "you won the game!"
-    : "you lost the game, try again next time!";
+rockButton.addEventListener("click", () => {
+    console.log(roundLogic("rock"));
 
-// Sends an alert to the user with the final game score.
-alert(`
-After 5 rounds, ${winner}
-The Score was:
-    You: ${userScore}
-    Computer: ${computerScore}`)
+});
+paperButton.addEventListener("click", () => {
+    roundLogic("paper");
+});
+scissorButton.addEventListener("click", () => {
+    roundLogic("scissors");
+});
