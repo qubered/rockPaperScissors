@@ -67,13 +67,13 @@ function scoreLogic(state) {
         userScore += 1;
         userScoreSpan.textContent = userScore;
         resultP.className = "text-green-500 font-semibold";
-        resultP.textContent = "You Win!";
+        resultP.textContent = "You Win this round!";
     }
     else {
         computerScore += 1;
         computerScoreSpan.textContent = computerScore;
         resultP.className = "text-red-500 font-semibold";
-        resultP.textContent = "Better luck next time!";
+        resultP.textContent = "Better luck next round!";
     }
     return;
 }
